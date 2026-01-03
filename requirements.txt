@@ -1,0 +1,25 @@
+# Video Profanity Detection & Auto-Beep System
+# Python Dependencies
+
+# Web Framework
+flask==3.0.0
+werkzeug==3.0.1
+
+# Audio/Video Processing
+moviepy==1.0.3
+pydub==0.25.1
+ffmpeg-python==0.2.0
+
+# Speech Recognition
+openai-whisper==20231117
+
+# Audio Processing
+librosa==0.10.1
+soundfile==0.12.1
+
+numpy>=1.26,<2.0
+
+
+# Utilities
+pydantic==2.5.0
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Profanity Censor - Auto-Beep System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <a href="https://www.linkedin.com/in/nayonahmed/" target="_blank" rel="noopener noreferrer" class="btn-about-dev">
+                    👨‍💻 About Dev
+                </a>
+            </div>
+            <h1>🔥 Video Profanity Detection & Auto-Beep System</h1>
+            <p class="subtitle">Upload your video and automatically censor profane words with beep sounds</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <div class="upload-section" id="uploadSection">
+                <div class="upload-box" id="uploadBox">
+                    <div class="upload-icon">📹</div>
+                    <h2>Upload Video</h2>
+                    <p class="upload-hint">Drag and drop your video here or click to browse</p>
+                    <p class="file-info">Supported formats: MP4, MOV, MKV, AVI, M4V</p>
+                    <p class="file-info">Max file size: 500 MB</p>
+                    <input type="file" id="videoFile" accept=".mp4,.mov,.mkv,.avi,.m4v" hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('videoFile').click()">
+                        Choose Video File
+                    </button>
+                    <div class="selected-file" id="selectedFile"></div>
+                </div>
+            </div>
+
+            <!-- Processing Section -->
+            <div class="processing-section" id="processingSection" style="display: none;">
+                <h2>Processing Video...</h2>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Initializing...</p>
+                    <p class="progress-percent" id="progressPercent">0%</p>
+                </div>
+                <div class="processing-details" id="processingDetails"></div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="result-card success">
+                    <h2>✅ Processing Complete!</h2>
+                    <div class="result-info">
+                        <p><strong>Profanities Detected:</strong> <span id="profanityCount">0</span></p>
+                        <p><strong>Status:</strong> <span id="resultStatus">Success</span></p>
+                    </div>
+                    
+                    <div class="profanity-list" id="profanityList" style="display: none;">
+                        <h3>Detected Profanities:</h3>
+                        <ul id="profanityListItems"></ul>
+                    </div>
+
+                    <div class="download-section">
+                        <button class="btn btn-success" id="downloadBtn" onclick="downloadVideo()">
+                            📥 Download Censored Video
+                        </button>
+                        <button class="btn btn-secondary" onclick="resetForm()">
+                            🔄 Process Another Video
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Section -->
+            <div class="error-section" id="errorSection" style="display: none;">
+                <div class="result-card error">
+                    <h2>❌ Error</h2>
+                    <p id="errorMessage"></p>
+                    <button class="btn btn-secondary" onclick="resetForm()">
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Video Profanity Detection & Auto-Beep System v1.0</p>
+            <a href="https://www.linkedin.com/in/nayonahmed/" target="_blank" rel="noopener noreferrer" class="btn-about-dev-footer">
+                👨‍💻 About Dev
+            </a>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
+
